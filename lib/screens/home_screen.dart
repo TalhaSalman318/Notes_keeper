@@ -59,6 +59,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                       subtitle: Text(
                         note.description,
+                        maxLines: 5,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: AppColors.whiteColor,
                           fontSize: 18,

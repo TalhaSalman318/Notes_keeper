@@ -57,7 +57,6 @@ class NoteDetails extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            textAlign: TextAlign.start,
             note.title,
             style: TextStyle(
               fontSize: 40,
@@ -67,7 +66,6 @@ class NoteDetails extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Text(
-            textAlign: TextAlign.start,
             note.description,
             style: TextStyle(fontSize: 20, color: AppColors.whiteColor),
           ),
