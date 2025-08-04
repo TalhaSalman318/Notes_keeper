@@ -14,6 +14,15 @@ class NoteDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final todoProvider = Provider.of<NoteProvider>(context, listen: true);
+    if (noteIndex >= todoProvider.notes.length) {
+      Future.delayed(Duration.zero, () {
+        if (Navigator.canPop(context)) {
+          Navigator.pop(context);
+        }
+      });
+      return const SizedBox.shrink();
+    }
+
     final note = todoProvider.notes[noteIndex];
 
     return Scaffold(
@@ -56,12 +65,14 @@ class NoteDetails extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text(
-            note.title,
-            style: TextStyle(
-              fontSize: 40,
-              color: AppColors.whiteColor,
-              fontWeight: FontWeight.bold,
+          Center(
+            child: Text(
+              note.title,
+              style: TextStyle(
+                fontSize: 40,
+                color: AppColors.whiteColor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           SizedBox(height: 20),

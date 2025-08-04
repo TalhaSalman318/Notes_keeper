@@ -4,11 +4,32 @@ import 'package:notes_keeper/provider/note_provider.dart';
 import 'package:notes_keeper/widgets/colors.dart';
 import 'package:provider/provider.dart';
 
-class AddNoteScreen extends StatelessWidget {
+class AddNoteScreen extends StatefulWidget {
   AddNoteScreen({super.key});
 
-  final TextEditingController titleController = TextEditingController();
-  final TextEditingController descriptionController = TextEditingController();
+  @override
+  State<AddNoteScreen> createState() => _AddNoteScreenState();
+}
+
+class _AddNoteScreenState extends State<AddNoteScreen> {
+  late TextEditingController titleController = TextEditingController();
+  late TextEditingController descriptionController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize controllers or any other state if needed
+    titleController = TextEditingController();
+    descriptionController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    // Dispose controllers to free up resources
+    titleController.dispose();
+    descriptionController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +41,10 @@ class AddNoteScreen extends StatelessWidget {
           TextField(
             style: TextStyle(color: AppColors.whiteColor),
             controller: titleController,
+            textInputAction: TextInputAction.done,
+            onSubmitted: (value) {
+              print("Entered $value");
+            },
             decoration: InputDecoration(
               hintText: 'Title',
               helperStyle: TextStyle(color: AppColors.whiteColor),
@@ -38,6 +63,10 @@ class AddNoteScreen extends StatelessWidget {
           TextField(
             style: TextStyle(color: AppColors.whiteColor),
             controller: descriptionController,
+            textInputAction: TextInputAction.done,
+            onSubmitted: (value) {
+              print("Entered $value");
+            },
             decoration: InputDecoration(
               hintText: 'Description',
               helperStyle: TextStyle(color: AppColors.whiteColor),

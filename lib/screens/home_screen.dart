@@ -53,13 +53,13 @@ class HomeScreen extends StatelessWidget {
                         note.title,
                         style: TextStyle(
                           color: AppColors.whiteColor,
-                          fontSize: 28,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       subtitle: Text(
                         note.description,
-                        maxLines: 5,
+                        maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: AppColors.whiteColor,
