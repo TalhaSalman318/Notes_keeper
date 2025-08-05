@@ -35,7 +35,11 @@ class _SplashScreenState extends State<SplashScreen> {
         child: SizedBox(
           width: 250.0,
           child: DefaultTextStyle(
-            style: const TextStyle(fontSize: 30.0, fontFamily: 'Agne'),
+            style: const TextStyle(
+              fontSize: 50.0,
+              fontFamily: 'Agne',
+              color: AppColors.whiteColor,
+            ),
             child: AnimatedTextKit(
               animatedTexts: [TypewriterAnimatedText('Notes Keeper')],
             ),

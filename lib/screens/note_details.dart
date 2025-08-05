@@ -48,39 +48,46 @@ class NoteDetails extends StatelessWidget {
                 value: 'edit',
                 child: Text(
                   'Edit',
-                  style: TextStyle(color: AppColors.whiteColor),
+                  style: TextStyle(color: AppColors.blackColor),
                 ),
               ),
               PopupMenuItem(
                 value: 'delete',
                 child: Text(
                   'Delete',
-                  style: TextStyle(color: AppColors.whiteColor),
+                  style: TextStyle(color: AppColors.blackColor),
                 ),
               ),
             ],
           ),
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Center(
-            child: Text(
-              note.title,
-              style: TextStyle(
-                fontSize: 40,
-                color: AppColors.whiteColor,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Text(
+                note.title,
+                style: TextStyle(
+                  fontSize: 40,
+                  color: AppColors.whiteColor,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          SizedBox(height: 20),
-          Text(
-            note.description,
-            style: TextStyle(fontSize: 20, color: AppColors.whiteColor),
-          ),
-        ],
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                note.description,
+                style: TextStyle(fontSize: 20, color: AppColors.whiteColor),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

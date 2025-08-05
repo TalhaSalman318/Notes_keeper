@@ -25,6 +25,7 @@ Future<void> showEditNoteDialog(
 
     // Call provider update method with index
     final provider = Provider.of<NoteProvider>(context, listen: false);
+
     provider.updateNote(index, updatedNote);
   }
 }

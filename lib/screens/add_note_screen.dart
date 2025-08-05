@@ -34,12 +34,14 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
   @override
   Widget build(BuildContext context) {
     final noteProvider = Provider.of<NoteProvider>(context);
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
           TextField(
-            style: TextStyle(color: AppColors.whiteColor),
+            cursorColor: AppColors.blackColor,
+            style: TextStyle(color: AppColors.blackColor),
             controller: titleController,
             textInputAction: TextInputAction.done,
             onSubmitted: (value) {
@@ -61,7 +63,8 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
           ),
           SizedBox(height: 10),
           TextField(
-            style: TextStyle(color: AppColors.whiteColor),
+            cursorColor: AppColors.blackColor,
+            style: TextStyle(color: AppColors.blackColor),
             controller: descriptionController,
             textInputAction: TextInputAction.done,
             onSubmitted: (value) {
@@ -69,7 +72,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
             },
             decoration: InputDecoration(
               hintText: 'Description',
-              helperStyle: TextStyle(color: AppColors.whiteColor),
+              helperStyle: TextStyle(color: AppColors.blackColor),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: AppColors.blackColor),
               ),

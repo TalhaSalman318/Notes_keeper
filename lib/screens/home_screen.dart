@@ -51,8 +51,10 @@ class HomeScreen extends StatelessWidget {
                     child: ListTile(
                       title: Text(
                         note.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          color: AppColors.whiteColor,
+                          color: AppColors.blackColor,
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                         ),
@@ -62,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          color: AppColors.whiteColor,
+                          color: AppColors.blackColor,
                           fontSize: 18,
                         ),
                       ),
@@ -88,7 +90,7 @@ class HomeScreen extends StatelessWidget {
             },
           );
         },
-        child: const Icon(Icons.add, color: AppColors.whiteColor),
+        child: const Icon(Icons.add, color: AppColors.blackColor),
       ),
     );
   }
