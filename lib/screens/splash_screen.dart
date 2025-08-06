@@ -17,9 +17,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    final splashProvider = Provider.of<NoteProvider>(context, listen: false);
 
-    splashProvider.initializeApp().then((_) {
+    Future.delayed(const Duration(seconds: 2), () async {
+      await Provider.of<NoteProvider>(context, listen: false);
+
+      // Now go to HomeScreen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const HomeScreen()),

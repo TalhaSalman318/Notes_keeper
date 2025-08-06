@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:notes_keeper/provider/note_provider.dart';
-import 'package:notes_keeper/screens/home_screen.dart';
 import 'package:notes_keeper/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => NoteProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => NoteProvider()..initializeApp()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),

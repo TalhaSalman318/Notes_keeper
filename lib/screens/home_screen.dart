@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final todoProvider = Provider.of<NoteProvider>(context, listen: true);
+    final todoProvider = Provider.of<NoteProvider>(context);
     final notes = todoProvider.notes;
 
     return Scaffold(
@@ -27,55 +27,61 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
       ),
       backgroundColor: AppColors.blackColor,
-      body: Column(
-        children: [
-          Expanded(
-            child: GridView.builder(
-              itemCount: notes.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-              ),
-              itemBuilder: (context, index) {
-                final note = notes[index];
-                return Card(
-                  color: AppColors.greyColor,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => NoteDetails(noteIndex: index),
+      body: notes.isEmpty
+          ? const Center(
+              child: Text("No notes yet.", style: TextStyle(fontSize: 30)),
+            )
+          : Column(
+              children: [
+                Expanded(
+                  child: GridView.builder(
+                    itemCount: notes.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                        ),
+                    itemBuilder: (context, index) {
+                      final note = notes[index];
+                      return Card(
+                        color: AppColors.greyColor,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    NoteDetails(noteIndex: index),
+                              ),
+                            );
+                          },
+                          child: ListTile(
+                            title: Text(
+                              note.title,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: AppColors.blackColor,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            subtitle: Text(
+                              note.description,
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: AppColors.blackColor,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
                         ),
                       );
                     },
-                    child: ListTile(
-                      title: Text(
-                        note.title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: AppColors.blackColor,
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      subtitle: Text(
-                        note.description,
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: AppColors.blackColor,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
                   ),
-                );
-              },
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.greyColor,
         onPressed: () {

@@ -90,6 +90,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
               backgroundColor: AppColors.blackColor,
             ),
             onPressed: () {
+              Navigator.pop(context);
               if (titleController.text.isNotEmpty ||
                   descriptionController.text.isNotEmpty) {
                 // Create Note object
