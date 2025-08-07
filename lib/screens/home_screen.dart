@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:notes_keeper/screens/add_note_screen.dart';
 import 'package:notes_keeper/screens/note_details.dart';
 import 'package:notes_keeper/widgets/colors.dart';
@@ -43,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final note = notes[index];
                       return Card(
-                        color: AppColors.greyColor,
+                        color: AppColors.darkGreyColor,
                         child: InkWell(
                           onTap: () {
                             Navigator.push(
@@ -54,26 +55,30 @@ class HomeScreen extends StatelessWidget {
                               ),
                             );
                           },
-                          child: ListTile(
-                            title: Text(
-                              note.title,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                color: AppColors.blackColor,
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
+                          child: Column(
+                            children: [
+                              ListTile(
+                                title: Text(
+                                  note.title,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    color: AppColors.whiteColor,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                subtitle: Text(
+                                  note.description,
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    color: AppColors.whiteColor,
+                                    fontSize: 18,
+                                  ),
+                                ),
                               ),
-                            ),
-                            subtitle: Text(
-                              note.description,
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                color: AppColors.blackColor,
-                                fontSize: 18,
-                              ),
-                            ),
+                            ],
                           ),
                         ),
                       );
@@ -83,10 +88,10 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.greyColor,
+        backgroundColor: AppColors.darkGreyColor,
         onPressed: () {
           showModalBottomSheet(
-            backgroundColor: AppColors.greyColor,
+            backgroundColor: AppColors.darkGreyColor,
             context: context,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -96,7 +101,7 @@ class HomeScreen extends StatelessWidget {
             },
           );
         },
-        child: const Icon(Icons.add, color: AppColors.blackColor),
+        child: const Icon(Icons.add, color: AppColors.whiteColor),
       ),
     );
   }

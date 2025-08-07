@@ -3,6 +3,7 @@ import 'package:notes_keeper/models/note.dart';
 import 'package:notes_keeper/provider/note_provider.dart';
 import 'package:notes_keeper/widgets/colors.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 class AddNoteScreen extends StatefulWidget {
   AddNoteScreen({super.key});
@@ -14,6 +15,11 @@ class AddNoteScreen extends StatefulWidget {
 class _AddNoteScreenState extends State<AddNoteScreen> {
   late TextEditingController titleController = TextEditingController();
   late TextEditingController descriptionController = TextEditingController();
+
+  final now = DateTime.now();
+  final formattedDate = DateFormat(
+    'EEEE, dd MMM yyyy - hh:mm a',
+  ).format(DateTime.now());
 
   @override
   void initState() {
@@ -40,8 +46,8 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
       child: Column(
         children: [
           TextField(
-            cursorColor: AppColors.blackColor,
-            style: TextStyle(color: AppColors.blackColor),
+            cursorColor: AppColors.whiteColor,
+            style: TextStyle(color: AppColors.whiteColor),
             controller: titleController,
             textInputAction: TextInputAction.done,
             onSubmitted: (value) {
@@ -51,10 +57,10 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
               hintText: 'Title',
               helperStyle: TextStyle(color: AppColors.whiteColor),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.blackColor),
+                borderSide: BorderSide(color: AppColors.lightGreyColor),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.blackColor),
+                borderSide: BorderSide(color: AppColors.lightGreyColor),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
@@ -63,8 +69,8 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
           ),
           SizedBox(height: 10),
           TextField(
-            cursorColor: AppColors.blackColor,
-            style: TextStyle(color: AppColors.blackColor),
+            cursorColor: AppColors.whiteColor,
+            style: TextStyle(color: AppColors.whiteColor),
             controller: descriptionController,
             textInputAction: TextInputAction.done,
             onSubmitted: (value) {
@@ -72,12 +78,12 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
             },
             decoration: InputDecoration(
               hintText: 'Description',
-              helperStyle: TextStyle(color: AppColors.blackColor),
+              helperStyle: TextStyle(color: AppColors.whiteColor),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.blackColor),
+                borderSide: BorderSide(color: AppColors.lightGreyColor),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.blackColor),
+                borderSide: BorderSide(color: AppColors.lightGreyColor),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
@@ -97,6 +103,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                 final newNote = Note(
                   title: titleController.text,
                   description: descriptionController.text,
+                  dateTime: formattedDate,
                 );
                 // Add note using provider
                 noteProvider.addNote(newNote);
@@ -107,7 +114,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
             },
             child: Text(
               'Add Note',
-              style: TextStyle(color: AppColors.whiteColor),
+              style: TextStyle(color: AppColors.lightGreyColor),
             ),
           ),
         ],

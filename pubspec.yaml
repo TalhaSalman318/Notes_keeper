@@ -38,6 +38,7 @@ dependencies:
   adaptive_dialog: ^2.4.2
   animated_text_kit: ^4.2.3
   shared_preferences: ^2.5.3
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:

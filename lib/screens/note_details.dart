@@ -29,12 +29,12 @@ class NoteDetails extends StatelessWidget {
       backgroundColor: AppColors.blackColor,
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: AppColors.whiteColor, // 👈 Back arrow color
+          color: AppColors.lightGreyColor, // 👈 Back arrow color
         ),
         backgroundColor: AppColors.blackColor,
         actions: [
           PopupMenuButton<String>(
-            color: AppColors.greyColor,
+            color: AppColors.lightGreyColor,
             onSelected: (value) {
               if (value == 'edit') {
                 showEditNoteDialog(context, note, noteIndex);
@@ -55,7 +55,7 @@ class NoteDetails extends StatelessWidget {
                 value: 'delete',
                 child: Text(
                   'Delete',
-                  style: TextStyle(color: AppColors.blackColor),
+                  style: TextStyle(color: Colors.redAccent),
                 ),
               ),
             ],
@@ -68,7 +68,7 @@ class NoteDetails extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(10.0),
               child: Text(
                 note.title,
                 style: TextStyle(
@@ -78,9 +78,17 @@ class NoteDetails extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.only(left: 10),
+              child: Text(
+                note.dateTime,
+                style: TextStyle(fontSize: 13, color: Colors.grey),
+              ),
+            ),
+
+            SizedBox(height: 13),
+            Padding(
+              padding: const EdgeInsets.only(left: 8),
               child: Text(
                 note.description,
                 style: TextStyle(fontSize: 20, color: AppColors.whiteColor),
