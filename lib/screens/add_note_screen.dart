@@ -57,10 +57,10 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
               hintText: 'Title',
               helperStyle: TextStyle(color: AppColors.whiteColor),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.lightGreyColor),
+                borderSide: BorderSide(color: AppColors.whiteColor),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.lightGreyColor),
+                borderSide: BorderSide(color: AppColors.whiteColor),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
@@ -80,10 +80,10 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
               hintText: 'Description',
               helperStyle: TextStyle(color: AppColors.whiteColor),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.lightGreyColor),
+                borderSide: BorderSide(color: AppColors.whiteColor),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.lightGreyColor),
+                borderSide: BorderSide(color: AppColors.whiteColor),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
@@ -114,7 +114,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
             },
             child: Text(
               'Add Note',
-              style: TextStyle(color: AppColors.lightGreyColor),
+              style: TextStyle(color: AppColors.whiteColor),
             ),
           ),
         ],

@@ -88,10 +88,10 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.darkGreyColor,
+        backgroundColor: AppColors.lightGreyColor,
         onPressed: () {
           showModalBottomSheet(
-            backgroundColor: AppColors.darkGreyColor,
+            backgroundColor: AppColors.lightGreyColor,
             context: context,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -101,7 +101,7 @@ class HomeScreen extends StatelessWidget {
             },
           );
         },
-        child: const Icon(Icons.add, color: AppColors.whiteColor),
+        child: const Icon(Icons.add, color: AppColors.blackColor),
       ),
     );
   }
